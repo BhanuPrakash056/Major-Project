@@ -5,8 +5,7 @@ import { errorResponse } from '../interceptor/error.js';
 const addUser = async (req,res) => {
     let {name,number,password} = req.body;
     try{ 
-
-        UserDetails.find({number:number},(err,data)=>{
+        await UserDetails.find({number:number},(err,data)=>{
         var keycount  = Object.keys(data).length;
         
         if(keycount > 0){
